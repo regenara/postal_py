@@ -1,0 +1,28 @@
+[project]
+name = "postal_py"
+version = "0.0.1"
+description = "PostalPy is a library for interacting with the Postal server."
+authors = [
+    { name = "regenara", email = "jakebv.22@gmail.com" }
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0.0,<3.0.0",
+    "niquests>=3.0.0,<4.0.0"
+]
+dynamic = ["readme"]
+
+[project.urls]
+repository = "https://github.com/regenara/postal_py"
+homepage = "https://github.com/regenara/postal_py"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+smtp = [
+    "aiosmtplib>=4.0.0,<5.0.0"
+]
+
