@@ -30,7 +30,7 @@ pip install postal_py[smtp]
 ## Dependencies / Зависимости
 
 - [`pydantic>=2.0.0,<3.0.0`](https://pydantic-docs.helpmanual.io/)
-- [`niquests>=3.0.0,<4.0.0`](https://github.com/niqdev/niquests)
+- [`niquests>=3.0.0,<4.0.0`](https://niquests.readthedocs.io/)
 - [`aiosmtplib>=4.0.0,<5.0.0`](https://aiosmtplib.readthedocs.io/) *(only for async SMTP / только для async SMTP)*
 
 ## Usage Examples / Примеры использования
@@ -115,6 +115,7 @@ if __name__ == '__main__':
 
 ```python
 import asyncio
+
 from postal_py import AsyncPostalPyAPI
 from postal_py.api.schemas import (RequestMessageSchema,
                                    RequestAttachmentSchema,
