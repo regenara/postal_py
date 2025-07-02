@@ -8,10 +8,10 @@ email-рассылки. Библиотека поддерживает отпра
 
 ## Features / Возможности
 
-- **Postal API**
-- **SMTP**
-- **Synchronous** and **asynchronous** modes / **Синхронный** и **асинхронный** режимы
-- **Python 3.10+** compatible / Совместимость с **Python 3.10+**
+- Postal API
+- SMTP
+- Synchronous and asynchronous modes / Синхронный и асинхронный режимы
+- Python 3.10+ compatible / Совместимость с Python 3.10+
 
 ## Installation / Установка
 
