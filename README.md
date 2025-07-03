@@ -82,7 +82,7 @@ def main():
             RequestAttachmentSchema(
                 name='img.png',
                 content_type='image/png',
-                data='iVBesb...PaII='  # base64 encoded file
+                data='iVBesb...PaII='  # bytes or base64-encoded file
             )
         ]
     )
@@ -159,7 +159,7 @@ async def main():
             RequestAttachmentSchema(
                 name='img.png',
                 content_type='image/png',
-                data='iVBesb...PaII='  # base64 encoded file
+                data='iVBesb...PaII='  # bytes or base64-encoded file
             )
         ]
     )

@@ -1,6 +1,6 @@
 [project]
 name = "postal_py"
-version = "0.0.1"
+version = "0.0.2"
 description = "PostalPy is a library for interacting with the Postal server."
 authors = [
     { name = "regenara", email = "jakebv.22@gmail.com" }

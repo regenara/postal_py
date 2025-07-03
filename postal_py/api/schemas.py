@@ -1,9 +1,11 @@
+import base64
 from enum import Enum
 from typing import Any
 
 from pydantic import (BaseModel as PydanticBaseModel,
                       ConfigDict,
                       Field,
+                      field_validator,
                       conlist)
 
 
@@ -51,7 +53,14 @@ class MessageExpansion(str, Enum):
 class RequestAttachmentSchema(BaseModel):
     name: str
     content_type: str | None = None
-    data: str
+    data: str | bytes
+
+    @field_validator('data', mode='before')
+    @classmethod
+    def to_base64(cls, value: str | bytes) -> str:
+        if isinstance(value, bytes):
+            value = base64.b64encode(value).decode()
+        return value
 
 
 class ResponseAttachmentSchema(BaseModel):
