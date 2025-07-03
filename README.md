@@ -50,7 +50,7 @@ API_KEY = 'your_api_key'
 
 
 def main():
-    postal = PostalPyAPI('https://example.com/', api_key=API_KEY, timeout=10)
+    postal = PostalPyAPI(base_url='https://example.com/', api_key=API_KEY, timeout=10)
 
     # Get message details
     result = postal.get_message_details(
@@ -127,7 +127,7 @@ API_KEY = 'your_api_key'
 
 
 async def main():
-    postal = AsyncPostalPyAPI('https://example.com/', api_key=API_KEY, timeout=10)
+    postal = AsyncPostalPyAPI(base_url='https://example.com/', api_key=API_KEY, timeout=10)
 
     # Get message details
     result = await postal.get_message_details(
