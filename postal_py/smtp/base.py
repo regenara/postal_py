@@ -1,4 +1,3 @@
-import base64
 import logging
 from email.message import EmailMessage
 
@@ -35,12 +34,7 @@ class PostalPySMTPBase:
             message.add_alternative(data.html_body, subtype='html')
         for attachment in data.attachments:
             maintype, subtype = attachment.content_type.split('/')
-            if isinstance(attachment.data, bytes):
-                message.add_attachment(attachment.data, maintype=maintype, subtype=subtype,
-                                       filename=attachment.filename)
-            else:
-                message.add_attachment(base64.b64decode(attachment.data), maintype=maintype, subtype=subtype,
-                                       filename=attachment.filename)
+            message.add_attachment(attachment.data, maintype=maintype, subtype=subtype, filename=attachment.name)
         for k, v in data.headers.items():
             message[k] = v
         return message

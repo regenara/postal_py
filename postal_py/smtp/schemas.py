@@ -1,5 +1,8 @@
+import base64
+
 from pydantic import (BaseModel as PydanticBaseModel,
-                      Field)
+                      Field,
+                      field_validator)
 
 
 class BaseModel(PydanticBaseModel):
@@ -9,9 +12,16 @@ class BaseModel(PydanticBaseModel):
 
 
 class SMTPAttachmentSchema(BaseModel):
-    filename: str
+    name: str
     content_type: str = 'application/octet-stream'
     data: str | bytes
+
+    @field_validator('data', mode='before')
+    @classmethod
+    def to_base64(cls, value: str | bytes) -> bytes:
+        if isinstance(value, str):
+            value = base64.b64decode(value)
+        return value
 
 
 class SMTPMessageSchema(BaseModel):
