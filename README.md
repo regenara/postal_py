@@ -1,4 +1,4 @@
-# PostalPy
+# [PostalPy](https://pypi.org/project/postal-py/)
 
 **PostalPy** is a Python library for integrating with the [Postal server](https://github.com/postalserver/postal) for
 email delivery. It supports sending messages via the Postal API and SMTP in both synchronous and asynchronous modes.
@@ -15,13 +15,13 @@ email-рассылки. Библиотека поддерживает отпра
 
 ## Installation / Установка
 
-### Basic Installation (API + Synchronous SMTP) / Базовая установка (API + синхронный SMTP)
+### Basic Installation (API + synchronous SMTP) / Базовая установка (API + синхронный SMTP)
 
 ```bash
 pip install postal_py
 ```
 
-### Installation with Asynchronous SMTP Support / Установка с поддержкой асинхронного SMTP
+### Installation with asynchronous SMTP Support / Установка с поддержкой асинхронного SMTP
 
 ```bash
 pip install postal_py[smtp]
@@ -31,7 +31,7 @@ pip install postal_py[smtp]
 
 - [`pydantic>=2.0.0,<3.0.0`](https://pydantic-docs.helpmanual.io/)
 - [`niquests>=3.0.0,<4.0.0`](https://niquests.readthedocs.io/)
-- [`aiosmtplib>=4.0.0,<5.0.0`](https://aiosmtplib.readthedocs.io/) *(only for async SMTP / только для async SMTP)*
+- [`aiosmtplib>=4.0.0,<5.0.0`](https://aiosmtplib.readthedocs.io/) *(only for async SMTP / только для асинхронного SMTP)*
 
 ## Usage Examples / Примеры использования
 
@@ -207,10 +207,11 @@ def main():
     )
 
     data = SMTPMessageSchema(
-        subject='Subject',
         to=['example_1@mail.com', 'example_2@mail.com'],
         cc=['example_3@mail.com'],
         bcc=['example_4@mail.com'],
+        from_='MyCompany <mail@example.com>',
+        subject='Subject',
         plain_body="This is the plain version",
         html_body='<p>This is the <b>HTML</b> version</p>',
         headers={
@@ -260,10 +261,11 @@ async def main():
     )
 
     data = SMTPMessageSchema(
-        subject='Subject',
         to=['example_1@mail.com', 'example_2@mail.com'],
         cc=['example_3@mail.com'],
         bcc=['example_4@mail.com'],
+        from_='MyCompany <mail@example.com>',
+        subject='Subject',
         plain_body="This is the plain version",
         html_body='<p>This is the <b>HTML</b> version</p>',
         headers={
