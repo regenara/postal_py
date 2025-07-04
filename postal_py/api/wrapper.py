@@ -21,8 +21,9 @@ class PostalPyAPI(PostalPyAPIBase):
         self._session.headers = self._headers
 
     def _send_request(self, url: str, json: dict[str, Any]) -> ResponseSchema:
+        log_json = self._get_log_json(json=json)
         request_id = uuid4().hex
-        self._logger.info('Request=%s url=%s json=%s', request_id, url, json)
+        self._logger.info('Request=%s url=%s json=%s', request_id, url, log_json)
         try:
             response = self._session.post(url=url, json=json)
         except ConnectTimeout as e:

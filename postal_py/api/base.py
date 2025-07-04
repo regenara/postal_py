@@ -1,4 +1,5 @@
 import logging
+from typing import Any
 
 from niquests.models import Response
 
@@ -35,6 +36,14 @@ class PostalPyAPIBase:
         }
         self._logger = logging.getLogger('PostalPyAPI')
         self._logger.setLevel(level)
+
+    @staticmethod
+    def _get_log_json(json: dict[str, Any]) -> dict[str, Any]:
+        log_json = json.copy()
+        for key in ('plain_body', 'html_body', 'attachments'):
+            if key in log_json and (length := len(value := str(log_json[key]))) > 120:
+                log_json[key] = f'<{value[:20]}...{value[-20:]}> ({length} chars)'
+        return log_json
 
     def _handle_response(self, response: Response, request_id: str) -> ResponseSchema:
         if response.status_code != 200:
