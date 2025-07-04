@@ -32,9 +32,9 @@ class PostalPySMTPBase:
             message.set_content(data.plain_body)
         if data.html_body is not None:
             message.add_alternative(data.html_body, subtype='html')
-        for attachment in data.attachments:
+        for attachment in data.attachments or ():
             maintype, subtype = attachment.content_type.split('/')
             message.add_attachment(attachment.data, maintype=maintype, subtype=subtype, filename=attachment.name)
-        for k, v in data.headers.items():
+        for k, v in (data.headers or {}).items():
             message[k] = v
         return message

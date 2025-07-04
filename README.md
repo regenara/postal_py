@@ -18,13 +18,13 @@ email-рассылки. Библиотека поддерживает отпра
 ### Basic Installation (API + synchronous SMTP) / Базовая установка (API + синхронный SMTP)
 
 ```bash
-pip install postal_py
+pip install postal-py
 ```
 
 ### Installation with asynchronous SMTP Support / Установка с поддержкой асинхронного SMTP
 
 ```bash
-pip install postal_py[smtp]
+pip install postal-py[smtp]
 ```
 
 ## Dependencies / Зависимости

@@ -33,5 +33,5 @@ class SMTPMessageSchema(BaseModel):
     reply_to: str | None = None
     plain_body: str | None = None
     html_body: str | None = None
-    attachments: list[SMTPAttachmentSchema] = Field(default_factory=list)
-    headers: dict[str, str] = Field(default_factory=dict)
+    attachments: list[SMTPAttachmentSchema] | None = None
+    headers: dict[str, str] | None = None
